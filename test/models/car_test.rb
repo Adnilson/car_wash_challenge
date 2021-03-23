@@ -41,8 +41,10 @@ class CarTest < ActiveSupport::TestCase
   end
 
   test "price should be a number" do
-    car = Car.new(year: 2021, color: 'blue', license_plate: '33-DS-22', price: 'fewf', model: @model)
+    car = Car.new(year: 2021, color: 'blue', license_plate: '33-DS-46', price: 320, model: @model)
+    car2 = Car.new(year: 2021, color: 'blue', license_plate: '30-DS-22', price: 'fewf', model: @model)
 
-    assert_not car.save
+    assert car.save
+    assert_not car2.save
   end
 end
