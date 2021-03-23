@@ -3,13 +3,13 @@
 one:
   year: 2019
   color: MyString
-  license_plate:
+  license_plate: '33-DS-22'
   price: 9.99
   model: one
 
 two:
   year: 2021
   color: MyString
-  license_plate:
+  license_plate: '49-NF-93'
   price: 9.99
   model: two
