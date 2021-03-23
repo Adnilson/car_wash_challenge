@@ -10,4 +10,5 @@ class Car < ApplicationRecord
 
   validates_format_of :license_plate, with: LICENSE_PLATE_REGEX
   validates :license_plate, uniqueness: true
+  validates :price, numericality: true
 end
