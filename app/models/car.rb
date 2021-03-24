@@ -2,6 +2,7 @@ LICENSE_PLATE_REGEX = /\A[0-9]{2}-[A-Z]{2}-[0-9]{2}/
 
 class Car < ApplicationRecord
   belongs_to :model
+  has_many :subscriptions
 
   validates :year,
             :color,
@@ -9,6 +10,7 @@ class Car < ApplicationRecord
             :price, presence: true
 
   validates_format_of :license_plate, with: LICENSE_PLATE_REGEX
+
   validates :license_plate, uniqueness: true
   validates :price, numericality: true
 end
