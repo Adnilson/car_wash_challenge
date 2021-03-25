@@ -68,7 +68,7 @@ class CarsController < ApplicationController
     end
 
     def sorting_options
-      [
+      @sorting_options ||= [
         'makers.name',
         'color',
         'year',
