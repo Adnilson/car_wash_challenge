@@ -2,7 +2,7 @@ LICENSE_PLATE_REGEX = /\A[0-9]{2}-[A-Z]{2}-[0-9]{2}/
 
 class Car < ApplicationRecord
   belongs_to :model
-  has_many :subscriptions
+  has_many :subscriptions, dependent: :destroy
 
   validates :year,
             :color,

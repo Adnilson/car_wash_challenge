@@ -3,11 +3,14 @@ class CarsController < ApplicationController
 
   # GET /cars
   def index
-    @cars = Car.includes(model: [:maker])
+    @cars = Car
+              .includes(:subscriptions, model: [:maker])
+              .order('price')
   end
 
   # GET /cars/1
   def show
+    @subscriptions = @car.subscriptions&.order(:end)
   end
 
   # GET /cars/new
@@ -47,7 +50,7 @@ class CarsController < ApplicationController
 
   private
     def set_car
-      @car = Car.includes(model: [:maker]).find(params[:id])
+      @car = Car.includes(:subscriptions, model: [:maker]).find(params[:id])
     end
 
     def car_params
