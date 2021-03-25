@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<div class="car">
+<div class="center">
   <p>
     <strong>Maker:</strong>
     <%= @car.model.maker.name %>
@@ -56,7 +56,8 @@
   </div>
 <% end %>
 
-
-<%= link_to 'Add subscription', new_car_subscription_path(@car) %> |
-<%= link_to 'Edit', edit_car_path(@car) %> |
-<%= link_to 'Back to car list', cars_path %>
+<div class="center">
+  <%= link_to 'Add subscription', new_car_subscription_path(@car) %> |
+  <%= link_to 'Edit', edit_car_path(@car) %> |
+  <%= link_to 'Cars list', cars_path %>
+</div>
