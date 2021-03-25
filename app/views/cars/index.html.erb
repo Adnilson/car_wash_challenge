@@ -2,34 +2,34 @@
 
 <h1>Cars</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Maker</th>
-      <th>Model</th>
-      <th>Year</th>
-      <th>Color</th>
-      <th>Price</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @cars.each do |car| %>
-      <tr>
-        <td><%= car.model.maker.name %></td>
-        <td><%= car.model.name %></td>
-        <td><%= car.year %></td>
-        <td><%= car.color %></td>
-        <td><%= car.license_plate %></td>
-        <td><%= car.price %></td>
-        <td><%= link_to 'Show', car %></td>
-        <td><%= link_to 'Edit', edit_car_path(car) %></td>
-        <td><%= link_to 'Destroy', car, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<div class="table-container" role="table" aria-label="Cars">
+  <div class="flex-table header" role="rowgroup">
+    <div class="flex-row div-8 first" role="columnheader">Maker</div>
+    <div class="flex-row div-8" role="columnheader">Model</div>
+    <div class="flex-row div-8" role="columnheader">Year</div>
+    <div class="flex-row div-8" role="columnheader">Color</div>
+    <div class="flex-row div-8" role="columnheader">License plate</div>
+    <div class="flex-row div-8" role="columnheader">Price</div>
+    <div class="flex-row div-8" role="columnheader">Available from</div>
+    <div class="flex-row div-8" role="columnheader">Actions</div>
+  </div>
+  <% @cars.each do |car| %>
+    <div class="flex-table row" role="rowgroup">
+      <div class="flex-row div-8 first" role="cell"><%= car.model.maker.name %></div>
+      <div class="flex-row div-8" role="cell"><%= car.model.name %></div>
+      <div class="flex-row div-8" role="cell"><%= car.year %></div>
+      <div class="flex-row div-8" role="cell"><%= car.color %></div>
+      <div class="flex-row div-8" role="cell"><%= car.license_plate %></div>
+      <div class="flex-row div-8" role="cell"><%= car.price %></div>
+      <div class="flex-row div-8" role="cell"><%= availability(car.subscriptions) %></div>
+      <div class="flex-row div-8" role="cell">
+        <%= link_to 'Show', car %>
+        <%= link_to 'Edit', edit_car_path(car) %>
+        <%= link_to 'Destroy', car, method: :delete, data: { confirm: 'Are you sure?' } %>
+      </div>
+    </div>
+  <% end %>
+</div>
 
 <br>
 

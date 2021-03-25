@@ -1,35 +1,62 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Maker:</strong>
-  <%= @car.model.maker.name %>
-</p>
+<div class="car">
+  <p>
+    <strong>Maker:</strong>
+    <%= @car.model.maker.name %>
+  </p>
 
-<p>
-  <strong>Model:</strong>
-  <%= @car.model.name %>
-</p>
+  <p>
+    <strong>Model:</strong>
+    <%= @car.model.name %>
+  </p>
 
-<p>
-  <strong>Year:</strong>
-  <%= @car.year %>
-</p>
+  <p>
+    <strong>Year:</strong>
+    <%= @car.year %>
+  </p>
 
-<p>
-  <strong>Color:</strong>
-  <%= @car.color %>
-</p>
+  <p>
+    <strong>Color:</strong>
+    <%= @car.color %>
+  </p>
 
-<p>
-  <strong>License plate:</strong>
-  <%= @car.license_plate %>
-</p>
+  <p>
+    <strong>License plate:</strong>
+    <%= @car.license_plate %>
+  </p>
 
-<p>
-  <strong>Price:</strong>
-  <%= @car.price %>
-</p>
+  <p>
+    <strong>Price:</strong>
+    <%= @car.price %>
+  </p>
 
-<%= link_to 'Add subscription', '#' %> |
+  <p>
+    <strong>Available from:</strong>
+    <%= availability(@car.subscriptions) %>
+  </p>
+</div>
+
+<% if @subscriptions.present? %>
+  <div class="table-container" role="table" aria-label="Cars">
+    <div class="flex-table header" role="rowgroup">
+      <div class="flex-row div-3" role="columnheader">From</div>
+      <div class="flex-row div-3" role="columnheader">To</div>
+      <div class="flex-row div-3" role="columnheader">Delete</div>
+    </div>
+    <% @subscriptions.each do |subscription| %>
+      <div class="flex-table row" role="rowgroup">
+        <div class="flex-row div-3" role="cell"><%= format_date(subscription.start) %></div>
+        <div class="flex-row div-3" role="cell"><%= format_date(subscription.end) %></div>
+        <div class="flex-row div-3" role="cell">
+          <%= link_to 'Delete', car_subscription_path(@car.id, subscription.id), method: :delete, data: { confirm: 'Are you sure?' } %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+<% end %>
+
+
+<%= link_to 'Add subscription', new_car_subscription_path(@car) %> |
 <%= link_to 'Edit', edit_car_path(@car) %> |
-<%= link_to 'Back', cars_path %>
+<%= link_to 'Back to car list', cars_path %>
