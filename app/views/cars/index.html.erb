@@ -4,12 +4,12 @@
 
 <div class="table-container" role="table" aria-label="Cars">
   <div class="flex-table header" role="rowgroup">
-    <div class="flex-row div-8 first" role="columnheader">Maker</div>
+    <div class="flex-row div-8 first" role="columnheader"><%= sortable "makers.name", "Maker" %></div>
     <div class="flex-row div-8" role="columnheader">Model</div>
-    <div class="flex-row div-8" role="columnheader">Year</div>
-    <div class="flex-row div-8" role="columnheader">Color</div>
+    <div class="flex-row div-8" role="columnheader"><%= sortable "year" %></div>
+    <div class="flex-row div-8" role="columnheader"><%= sortable "color" %></div>
     <div class="flex-row div-8" role="columnheader">License plate</div>
-    <div class="flex-row div-8" role="columnheader">Price</div>
+    <div class="flex-row div-8" role="columnheader"><%= sortable "price" %></div>
     <div class="flex-row div-8" role="columnheader">Available from</div>
     <div class="flex-row div-8" role="columnheader">Actions</div>
   </div>
