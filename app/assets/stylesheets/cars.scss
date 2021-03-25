@@ -2,7 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
-h1, p {
+h1 {
   text-align: center;
 }
 
@@ -11,6 +11,7 @@ div {
 }
 
 .center {
+  margin: 2em auto;
   text-align: center;
 }
 
@@ -28,6 +29,13 @@ div {
   margin: 2em auto;
   width: 90%;
   max-width: auto;
+}
+
+.header {
+  a, a:hover, a:focus, a:active {
+    color: white !important;
+    text-decoration: none;
+  }
 }
 
 .flex-table {

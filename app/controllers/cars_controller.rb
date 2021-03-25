@@ -1,11 +1,13 @@
 class CarsController < ApplicationController
+  helper_method :sort_column, :sort_direction
+
   before_action :set_car, only: [:show, :edit, :update, :destroy]
 
   # GET /cars
   def index
     @cars = Car
               .includes(:subscriptions, model: [:maker])
-              .order('price')
+              .order(sort_column + ' ' + sort_direction)
   end
 
   # GET /cars/1
@@ -55,5 +57,23 @@ class CarsController < ApplicationController
 
     def car_params
       params.require(:car).permit(:model_id, :year, :color, :license_plate, :price)
+    end
+
+    def sort_column
+      sorting_options.include?(params[:sort]) ? params[:sort] : 'price'
+    end
+
+    def sort_direction
+      %w(asc desc).include?(params[:direction]) ? params[:direction] : 'asc'
+    end
+
+    def sorting_options
+      [
+        'makers.name',
+        'color',
+        'year',
+        'price',
+        'availability'
+      ]
     end
 end
