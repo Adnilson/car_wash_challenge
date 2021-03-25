@@ -1,24 +1,43 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# Cazoo challenge solution
+
+This is a repo of cars that can be subscribed.
 
 Things you may want to cover:
 
-* Ruby version
+As you asked to have docker, all components are in a network. Main app, PostgreSQL.
 
-* System dependencies
+I decided not to use Sidekiq for simplicity and fast iteration. It could be added to this network as well with Redis.
 
-* Configuration
+## Instructions
 
-* Database creation
+### Configure environment variables
 
-* Database initialization
+Create an .env file and copy contents from example-env
 
-* How to run the test suite
+e.g.
 
-* Services (job queues, cache servers, search engines, etc.)
+`cp example-env .env`
 
-* Deployment instructions
 
-* ...
+### Build the app for development
+
+`docker-compose build`
+
+* Enliven the containers
+
+`docker-compose up`
+
+* Set up the database
+
+`docker-compose run web rails db:create`
+
+`docker-compose run web rails db:schema:load`
+
+`docker-compose run web rails db:seed`
+
+
+* Run tests
+
+`docker-compose run web rails test`
