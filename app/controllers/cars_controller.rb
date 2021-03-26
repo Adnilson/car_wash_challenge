@@ -8,6 +8,7 @@ class CarsController < ApplicationController
     @cars = Car
               .includes(:subscriptions, model: [:maker])
               .order(sort_column + ' ' + sort_direction)
+              .page(params[:page])
   end
 
   # GET /cars/1
