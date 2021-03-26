@@ -37,6 +37,8 @@ e.g.
 
 `docker-compose run web rails db:seed`
 
+This seeding will create the Maker and Model tables for the cars
+
 
 * Run tests
 
