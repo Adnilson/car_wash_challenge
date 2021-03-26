@@ -2,9 +2,17 @@
 
 # Cazoo challenge solution
 
-This is a repo of cars that can be subscribed.
+###  Question:
 
-Things you may want to cover:
+What do you mean with this?
+
+> "...all cars with an available from bigger than three months in the future should be filtered"
+
+There can be many interpretations.
+
+
+### Resuming...
+
 
 As you asked to have docker, all components are in a network. Main app, PostgreSQL.
 
