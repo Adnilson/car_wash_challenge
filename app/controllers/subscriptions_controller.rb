@@ -24,6 +24,6 @@ class SubscriptionsController < ApplicationController
   private
 
     def subscription_params
-      params.require(:subscription).permit(:start, :end)
+      params.require(:subscription).permit(:start_date, :end_date)
     end
 end

@@ -7,13 +7,20 @@ class CarsController < ApplicationController
   def index
     @cars = Car
               .includes(:subscriptions, model: [:maker])
+              .where(
+                '(subscriptions.start_date < ? OR subscriptions.start_date IS NULL)
+                AND
+                 (subscriptions.end_date < ? OR subscriptions.end_date IS NULL)',
+                3.months.from_now, Date.today
+              )
+              .references(:subscriptions)
               .order(sort_column + ' ' + sort_direction)
               .page(params[:page])
   end
 
   # GET /cars/1
   def show
-    @subscriptions = @car.subscriptions&.order(:end)
+    @subscriptions = @car.subscriptions&.order(:end_date)
   end
 
   # GET /cars/new
@@ -74,7 +81,7 @@ class CarsController < ApplicationController
         'color',
         'year',
         'price',
-        'availability'
+        'subscriptions.start_date'
       ]
     end
 end
