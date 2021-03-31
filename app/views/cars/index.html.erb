@@ -10,7 +10,7 @@
     <div class="flex-row div-8" role="columnheader"><%= sortable "color" %></div>
     <div class="flex-row div-8" role="columnheader">License plate</div>
     <div class="flex-row div-8" role="columnheader"><%= sortable "price" %></div>
-    <div class="flex-row div-8" role="columnheader">Available from</div>
+    <div class="flex-row div-8" role="columnheader"><%= sortable "subscriptions.start_date", "Available from" %></div>
     <div class="flex-row div-8" role="columnheader">Actions</div>
   </div>
   <% @cars.each do |car| %>

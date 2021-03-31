@@ -46,8 +46,8 @@
     </div>
     <% @subscriptions.each do |subscription| %>
       <div class="flex-table row" role="rowgroup">
-        <div class="flex-row div-3" role="cell"><%= format_date(subscription.start) %></div>
-        <div class="flex-row div-3" role="cell"><%= format_date(subscription.end) %></div>
+        <div class="flex-row div-3" role="cell"><%= format_date(subscription.start_date) %></div>
+        <div class="flex-row div-3" role="cell"><%= format_date(subscription.end_date) %></div>
         <div class="flex-row div-3" role="cell">
           <%= link_to 'Delete', car_subscription_path(@car.id, subscription.id), method: :delete, data: { confirm: 'Are you sure?' } %>
         </div>
