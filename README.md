@@ -51,3 +51,7 @@ This seeding will create the Maker and Model tables for the cars
 * Run tests
 
 `docker-compose run web rails test`
+
+* Use the app on debug mode
+
+`docker-compose run --service-ports web`
