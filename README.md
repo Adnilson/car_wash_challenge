@@ -1,22 +1,6 @@
 # README
 
-# Cazoo challenge solution
-
-###  Question:
-
-What do you mean with this?
-
-> "...all cars with an available from bigger than three months in the future should be filtered"
-
-There can be many interpretations.
-
-
-### Resuming...
-
-
-As you asked to have docker, all components are in a network. Main app, PostgreSQL.
-
-I decided not to use Sidekiq for simplicity and fast iteration. It could be added to this network as well with Redis.
+# Cars up for a wash
 
 ## Instructions
 
